@@ -1,0 +1,29 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
+
+contract Mytoken {
+    // create a public variable
+    string public tokenNme = "crypto";
+    string public tokenAbbreviation = "crpt";
+    uint public totalamount = 0;
+
+    // create a mapping variable
+    mapping(address => uint) public balances;
+
+    // create a function for amount collected
+    function amountcollection(address _address, uint _value)public{
+      totalamount += _value;
+      balances[_address]+= _value;
+    }
+
+    // create a loss funtion for amount collected
+     function loss(address _address, uint _value)public{
+      if(balances[_address]>=_value){
+      totalamount -= _value;
+      balances[_address]+= _value;
+      }
+    }
+}
+  
+ 
+      
